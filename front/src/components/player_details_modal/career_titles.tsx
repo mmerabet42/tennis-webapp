@@ -3,7 +3,7 @@ import { CgTennis } from "react-icons/cg";
 
 import PlayerInfoDetail from "../player_info_detail";
 import { PlayerTitle } from "../../interfaces";
-import config from '../../config.json';
+import config from '../../config';
 
 type Props = {
   playerId: string

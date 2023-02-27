@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 
-import config from './config.json';
+import config from './config';
 import PlayerCard from "./components/player_card";
 import { PlayerInfos } from "./interfaces";
 import SearchBar from "./components/search_bar";

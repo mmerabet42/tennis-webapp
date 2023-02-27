@@ -14,4 +14,7 @@ app.use(prismaMiddleware(prisma));
 
 app.use("/player", playerRouter);
 
+// Healthcheck
+app.use("/", (req, res) => res.send(""));
+
 app.listen(port, () => console.log(`Api is running on port ${port}`));

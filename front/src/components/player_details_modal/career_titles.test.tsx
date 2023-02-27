@@ -4,7 +4,7 @@ import { setupServer } from 'msw/node';
 import { rest } from 'msw';
 import { loremIpsum } from 'lorem-ipsum';
 
-import config from '../../config.json';
+import config from '../../config';
 import CareerTitles from './career_titles';
 import { PlayerTitle } from '../../interfaces';
 

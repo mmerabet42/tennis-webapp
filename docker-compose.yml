@@ -28,6 +28,7 @@ services:
       - DB_NAME=${DB_NAME}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_HOSTNAME=${DB_NAME}
+      - API_URL=${API_URL:-http://localhost}
     networks:
       - tennisNetwork
 
