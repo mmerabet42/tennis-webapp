@@ -20,8 +20,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+
+
     "start": "BROWSER=none react-scripts start",
-    "serve": "npm run build && npx serve -s build",
+    "serve": "echo APIURL $REACT_APP_API_URL; npm run build && npx serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -6,17 +6,18 @@
   "main": "./dist/index.js",
   "scripts": {
     "prepare": "rm -rf ./dist && npx tsc",
+    "with-prisma-env": "dotenv -e prisma.env -- env",
 
     "predev": "npm run prepare",
-    "dev": "dotenv -e prisma.env -- concurrently 'npx tsc --watch' 'nodemon ./dist'",
+    "dev": "npm run with-prisma-env concurrently 'npx tsc --watch' 'nodemon ./dist'",
 
-    "migrate-generate": "dotenv -e prisma.env -- npx prisma migrate deploy && dotenv -e prisma.env -- npx prisma generate",
+    "migrate-generate": "npm run with-prisma-env npx prisma migrate deploy && npm run with-prisma-env npx prisma generate",
 
     "preseed": "npm run prepare",
-    "seed": "dotenv -e prisma.env -- npm run migrate-generate && dotenv -e prisma.env -- node ./dist/seed_db",
+    "seed": "npm run with-prisma-env npm run migrate-generate && npm run with-prisma-env node ./dist/seed_db",
 
     "prestart": "npm run prepare",
-    "start": "npm run seed && dotenv -e prisma.env -- node ./dist"
+    "start": "npm run seed && npm run with-prisma-env node ./dist"
   },
   "keywords": [],
   "author": "",
