@@ -7,7 +7,7 @@ import SearchBar from "./components/search_bar";
 import PlayerDetailsModal from "./components/player_details_modal";
 import DebugScreens from "./components/debug_screens";
 
-function App() {
+export default function App() {
   const [searchValues, setSearchValues] = useState<string[]>([]);
 
   const [playersInfo, setPlayersInfo] = useState<PlayerInfos[]>([]);
@@ -38,8 +38,6 @@ function App() {
                     flex px-5 md:container-padding justify-center lg:justify-start
                     ${currentPlayerInfo ? "max-h-0 overflow-hidden fixed w-screen" : ""}`}>
 
-      <DebugScreens />
-
       <div className="flex flex-col space-y-4 mb-10 min-w-full sm:min-w-cards-container-width">
         <SearchBar
           show={!currentPlayerInfo}
@@ -53,5 +51,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

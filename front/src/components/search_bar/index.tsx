@@ -10,7 +10,7 @@ export default function SearchBar({ onChange, show }: Props) {
                   p-5 mt-10 sm:mt-32 mb-10 
                   rounded-2xl border-none outline-none
                   ${show ? "visible" : "invisible"}`}
-      placeholder="Rechercher un joueur"
+      placeholder="Search a player"
       onChange={onChange}
     />
   );
