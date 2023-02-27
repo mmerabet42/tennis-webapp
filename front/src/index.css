@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .container-padding {
+    @apply px-32;
+  }
+
+  /* Little trick in order to have strokes around texts */
+  .text-outline {
+    text-shadow:
+      -2px -2px 0 theme('colors.primary'),
+      2px -2px 0 theme('colors.primary'),
+      -2px 2px 0 theme('colors.primary'),
+      2px 2px 0 theme('colors.primary');
+  }
+
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 7px;
+  }
+    
+    /* Track */
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  /* Handle */
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background: theme('colors.primary');
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.secondary');
+  }
+}

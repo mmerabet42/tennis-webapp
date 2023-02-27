@@ -1,0 +1,45 @@
+{
+  "name": "tennis-back",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "prepare": "rm -rf ./dist && npx tsc",
+
+    "predev": "npm run prepare",
+    "dev": "dotenv -e prisma.env -- concurrently 'npx tsc --watch' 'nodemon ./dist'",
+
+    "migrate-generate": "dotenv -e prisma.env -- npx prisma migrate deploy && dotenv -e prisma.env -- npx prisma generate",
+
+    "preseed": "npm run prepare",
+    "seed": "dotenv -e prisma.env -- npm run migrate-generate && dotenv -e prisma.env -- node ./dist/seed_db",
+
+    "prestart": "npm run prepare",
+    "start": "npm run seed && dotenv -e prisma.env -- node ./dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.10.1",
+    "concurrently": "^7.6.0",
+    "cors": "^2.8.5",
+    "dotenv-cli": "^7.0.0",
+    "express": "^4.18.2",
+    "got": "^12.5.3",
+    "lorem-ipsum": "^2.0.8",
+    "nodemon": "^2.0.20",
+    "pg": "^8.9.0",
+    "prisma": "^4.10.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/got": "^9.6.12",
+    "@types/node": "^18.14.0",
+    "@types/node-fetch": "^2.6.2",
+    "@types/pg": "^8.6.6",
+    "typescript": "^4.9.5"
+  }
+}

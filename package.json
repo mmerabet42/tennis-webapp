@@ -1,0 +1,8 @@
+{
+  "name": "tennis",
+  "version": "1.0.0",
+  "scripts": {
+    "up": "docker compose up --build -d",
+    "down": "docker compose down"
+  }
+}
