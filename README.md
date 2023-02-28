@@ -32,15 +32,36 @@ DB_NAME=postgres DB_PASSWORD=password npm run up
 Once this command is run the website is accessible at this url: [http://localhost:5001/](http://localhost:5001/)
 
 `DB_NAME` and `DB_PASSWORD` are two mandatory environment variables required for the application to work:
-  - DB_NAME: The postgres user and database name.
-  - DB_PASSWORD: The postgres user's password.
+  - `DB_NAME`: The postgres user and database name.
+  - `DB_PASSWORD`: The postgres user's password.
 
 There are two other optional environment variables:
-  - FRONT_PORT: The port in wich the frontend is mapped to (5001 by default).
-  - BACK_PORT: The port in which the backend is mapped to (5000 by default).
+  - `FRONT_PORT`: The port in wich the frontend is mapped to (5001 by default).
+  - `BACK_PORT`: The port in which the backend is mapped to (5000 by default).
+  - `API_URL`: The api url. Once deployed, this should be the public domain or IP address (localhost:5000 by default).
 
 The app can be stopped with the following command:
 
 ```
 npm run down
+```
+
+You may use a `.env` file in order to store the environment variables:
+
+```
+DB_NAME=postgres
+DB_PASSWORD=password
+API_URL=example.com
+```
+
+Then you can use `dotenv` to load the environment variables:
+
+```
+dotenv -e .env -- npm run up
+```
+
+But you dont have to use `dotenv` actually, you can use this command:
+
+```
+env $(cat .env | grep '#') npm run up
 ```
