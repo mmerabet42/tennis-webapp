@@ -1,8 +1,10 @@
 # Tennis Webapp
 
-Tennis is a dockerized webapp, which includes a React App, and an Express API, along with a Postgresql database.
+Tennis is a technical challenge: given a sketch and some seeds, i had to implement a website which provides informations about tennis players.
 
-Tennis provides users with access to information about tennis players, including their ranking, points, weight, country of origin, age, and other relevant details.
+It is a dockerized webapp, which includes a React App, and an Express API, along with a Postgresql database.
+
+The tennis webapp provides users with access to information about tennis players, including their ranking, points, weight, country of origin, age, and other relevant details.
 
 ![Home](res/home.png)
 
