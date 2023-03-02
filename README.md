@@ -65,5 +65,5 @@ dotenv -e .env -- npm run up
 But you dont have to use `dotenv` actually, you can use this command:
 
 ```
-env $(cat .env | grep '#') npm run up
+env $(cat .env | grep -v '#') npm run up
 ```
