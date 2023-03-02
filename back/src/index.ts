@@ -3,7 +3,8 @@ import cors from 'cors';
 
 import playerRouter from './player/route.js';
 import { PrismaClient } from '@prisma/client';
-import prismaMiddleware from './prisma_middleware.js';
+import prismaMiddleware from './middlewares/prisma_middleware.js';
+import errorMiddleware from './middlewares/error_middleware.js';
 
 const port = Number(process.env.SERVER_PORT || 5000);
 const app = express();
@@ -13,6 +14,8 @@ app.use(cors());
 app.use(prismaMiddleware(prisma));
 
 app.use("/player", playerRouter);
+
+app.use(errorMiddleware());
 
 // Healthcheck
 app.use("/", (req, res) => res.send(""));

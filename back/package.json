@@ -7,15 +7,11 @@
   "scripts": {
     "prepare": "rm -rf ./dist && npx tsc",
     "with-prisma-env": "dotenv -e prisma.env -- env",
-
     "predev": "npm run prepare",
-    "dev": "npm run with-prisma-env concurrently 'npx tsc --watch' 'nodemon ./dist'",
-
+    "dev": "npm run seed && npm run with-prisma-env concurrently 'npx tsc --watch' 'nodemon ./dist'",
     "migrate-generate": "npm run with-prisma-env npx prisma migrate deploy && npm run with-prisma-env npx prisma generate",
-
     "preseed": "npm run prepare",
     "seed": "npm run with-prisma-env npm run migrate-generate && npm run with-prisma-env node ./dist/seed_db",
-
     "prestart": "npm run prepare",
     "start": "npm run seed && npm run with-prisma-env node ./dist"
   },
